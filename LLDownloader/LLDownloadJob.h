@@ -6,6 +6,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LLDownloadCache.h"
 
 typedef NS_ENUM(NSUInteger, LLDownloadJobState) {
     LLDownloadJobStateReady,        //准备中
@@ -29,7 +30,7 @@ typedef NS_ENUM(NSUInteger, Validation) {
 //    <#MyEnumValueC#>,
 //};
 
-@interface LLDownloadJobInfo : NSObject<NSCoding>
+@interface LLDownloadJobInfo : NSObject<NSCoding,NSSecureCoding>
 
 // 当前标识符
 @property (nonatomic, copy)   NSString *requestId;
@@ -46,7 +47,7 @@ typedef NS_ENUM(NSUInteger, Validation) {
 // 结束时间
 @property (nonatomic, assign) double endDate;
 // 任务的状态
-@property (nonatomic, assign) LLDownloadJobState state;
+@property (atomic, assign) LLDownloadJobState state;
 // 文件总大小
 @property (nonatomic, assign) int64_t totalBytes;
 // 文件已经下载的大小
@@ -64,7 +65,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDownloadJob : NSObject
 
+@property (nonatomic, weak) LLDownloadCache *cache;
 
+@property (nonatomic, strong, readonly) LLDownloadJobInfo *jobInfo;
+
+- (instancetype)initWithJobInfo:(LLDownloadJobInfo *)jobInfo;
 
 @end
 

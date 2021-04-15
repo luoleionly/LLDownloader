@@ -7,6 +7,7 @@
 
 #import <Foundation/Foundation.h>
 #import "LLValidObject.h"
+#import "LLDownloadJob.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -19,6 +20,12 @@ NS_ASSUME_NONNULL_BEGIN
 - (NSURL *)fileURLWithFileName:(NSString *)fileName;
 
 - (BOOL)fileExistsWithFileName:(NSString *)fileName;
+
+- (NSArray <LLDownloadJob *>*)getAllJobs;
+
+- (BOOL)getTmpFileWithTmpFileName:(NSString *)tmpFileName;
+
+
 
 @end
 

@@ -9,6 +9,10 @@
 
 @implementation LLDownloadJobInfo
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (void)encodeWithCoder:(NSCoder *)coder
 {
     
@@ -30,7 +34,7 @@
 // 下载Task
 @property (nonatomic, strong) NSURLSessionDownloadTask *task;
 // job模型
-@property (nonatomic, strong) LLDownloadJobInfo *jobInfo;
+@property (nonatomic, strong, readwrite) LLDownloadJobInfo *jobInfo;
 
 @end
 

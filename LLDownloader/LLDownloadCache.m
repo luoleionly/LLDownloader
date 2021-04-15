@@ -7,7 +7,6 @@
 
 #import "LLDownloadCache.h"
 #import "LLDownloadCenter.h"
-#import "LLDownloadJob.h"
 
 @interface LLDownloadCache ()
 
@@ -22,6 +21,7 @@
 @implementation LLDownloadCache
 {
     dispatch_queue_t ioQueue;
+    dispatch_semaphore_t semaphore;
 }
 
 
@@ -37,10 +37,21 @@
         _downloadPath = [diskCachePath stringByAppendingPathComponent:@"Downloads"];
         _downloadFilePath = [_downloadPath stringByAppendingPathComponent:@"File"];
         _downloadTmpPath = [_downloadPath stringByAppendingPathComponent:@"Tmp"];
+        semaphore = dispatch_semaphore_create(0);
         [self createDirectory];
         
     }
     return self;
+}
+
+- (void)lock
+{
+    dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER);
+}
+
+- (void)unlock
+{
+    dispatch_semaphore_signal(semaphore);
 }
 
 #pragma mark - Public File
@@ -105,13 +116,81 @@
 
 - (NSArray <LLDownloadJob *>*)getAllJobs
 {
-    dispatch_async(ioQueue, ^{
+    __block NSArray *jobs = [[NSArray alloc]init];
+    dispatch_sync(ioQueue, ^{
         NSString *path = [self.downloadPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_Tasks.plist",self.identifier]];
         if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
             NSData *data = [NSData dataWithContentsOfURL:[NSURL fileURLWithPath:path]];
-            
+            NSError *error = nil;
+            NSArray *jobInfos = [[NSArray alloc]init];
+            if (@available(iOS 11.0, *)) {
+                jobInfos = [NSKeyedUnarchiver unarchivedObjectOfClass:[NSArray class] fromData:data error:&error];
+                if (error) {
+                    NSLog(@"unarchivedObject failed");
+                }
+            } else {
+                jobInfos = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+            }
+            if (isValidNSArray(jobInfos)) {
+                NSMutableArray *currentJobs = [[NSMutableArray alloc]init];
+                for (LLDownloadJobInfo *jobInfo in jobInfos) {
+                    LLDownloadJob *job = [[LLDownloadJob alloc]initWithJobInfo:jobInfo];
+                    job.cache = self;
+                    if (job.jobInfo.state == LLDownloadJobStateWaiting) {
+                        job.jobInfo.state = LLDownloadJobStateSuspend;
+                    }
+                    addValidObjectForArray(currentJobs, job);
+                }
+                jobs = currentJobs.copy;
+            }
         }
     });
+    return jobs;
+}
+
+- (BOOL)getTmpFileWithTmpFileName:(NSString *)tmpFileName
+{
+    __block BOOL fileExists = NO;
+    dispatch_sync(ioQueue, ^{
+        if (isValidNSString(tmpFileName)) {
+            NSString *backupFilePath = [self.downloadTmpPath stringByAppendingPathComponent:tmpFileName];
+            NSString *originPath = [NSTemporaryDirectory() stringByAppendingPathComponent:tmpFileName];
+            BOOL backupFileExists = [[NSFileManager defaultManager] fileExistsAtPath:backupFilePath];
+            BOOL originFileExists = [[NSFileManager defaultManager]fileExistsAtPath:originPath];
+            NSError *error = nil;
+            if (originFileExists || backupFileExists) {
+                if (originFileExists) {
+                    [[NSFileManager defaultManager]removeItemAtPath:backupFilePath error:&error];
+                    if (error) {
+                        NSLog(@"removeItemAtPath backupFilePath failed...");
+                    }
+                } else {
+                    [[NSFileManager defaultManager]moveItemAtPath:backupFilePath toPath:originPath error:&error];
+                    if (error) {
+                        NSLog(@"moveItemAtPath moveItemAtPath to originPath failed...");
+                    }
+                }
+            }
+            fileExists = YES;
+        }
+    });
+    return fileExists;
+}
+
+- (void)storeJobs:(NSArray <LLDownloadJob *>*)jobs
+{
+    NSString *path = [self.downloadPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_Tasks.plist",self.identifier]];
+    NSError *error = nil;
+    if (@available(iOS 11.0, *)) {
+        [NSKeyedArchiver archivedDataWithRootObject:jobs requiringSecureCoding:YES error:&error];
+        if (error) {
+            NSLog(@"archivedDataWithRootObject failed...");
+        }
+    } else {
+//        PropertyListEncoder
+        [NSKeyedArchiver archivedDataWithRootObject:<#(nonnull id)#>];
+    }
+//    [NSKeyedArchiver ]
 }
 
 #pragma mark - Private
