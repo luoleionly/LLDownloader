@@ -14,7 +14,6 @@
 @property (nonatomic, copy) NSString *downloadTmpPath;
 @property (nonatomic, copy) NSString *downloadFilePath;
 @property (nonatomic, copy) NSString *identifier;
-@property (nonatomic, weak) LLDownloadCenter *downloadCenter;
 
 @end
 
@@ -24,8 +23,7 @@
     dispatch_semaphore_t semaphore;
 }
 
-
-- (instancetype)initWithIdentifier:(NSString *)identifier downloadPath:(NSString *)downloadPath downloadTmpPath:(NSString *)downloadTmpPath downloadFilePath:(NSString *)downloadFilePath
+- (instancetype)initWithIdentifier:(NSString *)identifier
 {
     self = [super init];
     if (self) {
@@ -137,7 +135,7 @@
                     LLDownloadJob *job = [[LLDownloadJob alloc]initWithJobInfo:jobInfo];
                     job.cache = self;
                     if (job.jobInfo.state == LLDownloadJobStateWaiting) {
-                        job.jobInfo.state = LLDownloadJobStateSuspend;
+                        job.jobInfo.state = LLDownloadJobStateSuspended;
                     }
                     addValidObjectForArray(currentJobs, job);
                 }
@@ -179,18 +177,67 @@
 
 - (void)storeJobs:(NSArray <LLDownloadJob *>*)jobs
 {
+    
     NSString *path = [self.downloadPath stringByAppendingPathComponent:[NSString stringWithFormat:@"%@_Tasks.plist",self.identifier]];
     NSError *error = nil;
+    NSData *data = nil;
     if (@available(iOS 11.0, *)) {
-        [NSKeyedArchiver archivedDataWithRootObject:jobs requiringSecureCoding:YES error:&error];
+         data = [NSKeyedArchiver archivedDataWithRootObject:jobs requiringSecureCoding:YES error:&error];
         if (error) {
             NSLog(@"archivedDataWithRootObject failed...");
         }
     } else {
-//        PropertyListEncoder
-        [NSKeyedArchiver archivedDataWithRootObject:<#(nonnull id)#>];
+        data = [NSKeyedArchiver archivedDataWithRootObject:jobs];
     }
-//    [NSKeyedArchiver ]
+    if (data) {
+        NSError *writeError = nil;
+        [data writeToFile:path options:NSDataWritingAtomic error:&writeError];
+        if (writeError) {
+            NSLog(@"archivedData write file failed...");
+        }
+    }
+}
+
+- (void)removeJob:(LLDownloadJob *)job needRemoveFile:(BOOL)need
+{
+    [self removeTmpFileWithTmpFileName:job.tmpFileName];
+    if (need) {
+        [self removeFileWithFilePath:job.filePath];
+    }
+}
+
+- (void)removeFileWithFilePath:(NSString *)filePtah
+{
+    dispatch_async(ioQueue, ^{
+        if ([[NSFileManager defaultManager]fileExistsAtPath:filePtah]) {
+            NSError *error = nil;
+            [[NSFileManager defaultManager]removeItemAtPath:filePtah error:&error];
+            if (error) {
+                NSLog(@"removeItemAtPath failed...");
+            }
+        }
+    });
+}
+
+- (void)removeTmpFileWithTmpFileName:(NSString *)tmpFileName
+{
+    dispatch_async(ioQueue, ^{
+        if (isValidNSString(tmpFileName)) {
+            NSString *path1 = [self.downloadTmpPath stringByAppendingPathComponent:tmpFileName];
+            NSString *path2 = [NSTemporaryDirectory() stringByAppendingPathComponent:tmpFileName];
+            NSArray *paths = @[path1,path2];
+            for (NSString *path in paths) {
+                if ([[NSFileManager defaultManager]fileExistsAtPath:path]) {
+                    NSError *error = nil;
+                    [[NSFileManager defaultManager]removeItemAtPath:path error:&error];
+                    if (error) {
+                        NSString *logString = [NSString stringWithFormat:@"removeItemAtPath failed path--%@",path];
+                        NSLog(@"%@",logString);
+                    }
+                }
+            }
+        }
+    });
 }
 
 #pragma mark - Private

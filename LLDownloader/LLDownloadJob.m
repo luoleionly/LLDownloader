@@ -50,6 +50,31 @@
     return self;
 }
 
+#pragma mark - Delegate callback
 
+- (void)didWriteData:(int64_t)bytesWritten
+   totalBytesWritten:(int64_t)totalBytesWritten
+totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite
+{
+    
+}
+
+- (void)didFinishDownloadingWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask
+toURL:(NSURL *)location
+{
+    
+}
+
+#pragma mark - Complete 出错的方式来源
+
+- (void)didCompleteBecauseofNetWorkWithTask:(NSURLSessionTask *)task error:(NSError *)error
+{
+    
+}
+
+- (void)didCompleteBecauseofLocal
+{
+    
+}
 
 @end

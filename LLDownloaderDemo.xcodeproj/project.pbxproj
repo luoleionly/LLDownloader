@@ -25,6 +25,7 @@
 		64D747C42628123A00A5A556 /* LLValidObject.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D747C32628123A00A5A556 /* LLValidObject.m */; };
 		64D747CA2628490800A5A556 /* NSString+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D747C92628490700A5A556 /* NSString+Hash.m */; };
 		64D747D02628491600A5A556 /* NSData+Hash.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D747CF2628491600A5A556 /* NSData+Hash.m */; };
+		64D747D926296B8300A5A556 /* LLTimer.m in Sources */ = {isa = PBXBuildFile; fileRef = 64D747D826296B8200A5A556 /* LLTimer.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -81,6 +82,8 @@
 		64D747C92628490700A5A556 /* NSString+Hash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSString+Hash.m"; sourceTree = "<group>"; };
 		64D747CE2628491500A5A556 /* NSData+Hash.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NSData+Hash.h"; sourceTree = "<group>"; };
 		64D747CF2628491600A5A556 /* NSData+Hash.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSData+Hash.m"; sourceTree = "<group>"; };
+		64D747D726296B8200A5A556 /* LLTimer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = LLTimer.h; sourceTree = "<group>"; };
+		64D747D826296B8200A5A556 /* LLTimer.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = LLTimer.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,6 +183,8 @@
 				64D747B426280C7800A5A556 /* LLDownloadSessionDelegate.m */,
 				64D747B926280ED700A5A556 /* LLDownloadCache.h */,
 				64D747BA26280ED700A5A556 /* LLDownloadCache.m */,
+				64D747D726296B8200A5A556 /* LLTimer.h */,
+				64D747D826296B8200A5A556 /* LLTimer.m */,
 				64D747C22628123A00A5A556 /* LLValidObject.h */,
 				64D747C32628123A00A5A556 /* LLValidObject.m */,
 				64D747C82628490700A5A556 /* NSString+Hash.h */,
@@ -330,6 +335,7 @@
 				64D747A32625959700A5A556 /* LLDownloadJobQueue.m in Sources */,
 				64D747BB26280ED700A5A556 /* LLDownloadCache.m in Sources */,
 				64D7476C262594CE00A5A556 /* main.m in Sources */,
+				64D747D926296B8300A5A556 /* LLTimer.m in Sources */,
 				64D747A9262595FD00A5A556 /* LLDownloadCenter.m in Sources */,
 				64D7475E262594CA00A5A556 /* SceneDelegate.m in Sources */,
 			);

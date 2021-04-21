@@ -6,11 +6,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "LLDownloadCenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDownloadSessionDelegate : NSObject
 
+@property (nonatomic, weak) LLDownloadCenter *center;
 
 @end
 

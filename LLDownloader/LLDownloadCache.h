@@ -8,10 +8,15 @@
 #import <Foundation/Foundation.h>
 #import "LLValidObject.h"
 #import "LLDownloadJob.h"
+#import "LLDownloadCenter.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDownloadCache : NSObject
+
+@property (nonatomic, weak) LLDownloadCenter *downloadCenter;
+
+- (instancetype)initWithIdentifier:(NSString *)identifier;
 
 + (NSString *)defaultDiskCachePathClosureWithCacheName:(NSString *)cacheName;
 
@@ -25,7 +30,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (BOOL)getTmpFileWithTmpFileName:(NSString *)tmpFileName;
 
+- (void)storeJobs:(NSArray <LLDownloadJob *>*)jobs;
 
+- (void)removeJob:(LLDownloadJob *)job needRemoveFile:(BOOL)need;
+
+- (void)removeFileWithFilePath:(NSString *)filePtah;
+
+- (void)removeTmpFileWithTmpFileName:(NSString *)tmpFileName;
 
 @end
 

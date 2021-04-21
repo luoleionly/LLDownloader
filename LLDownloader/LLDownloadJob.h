@@ -9,33 +9,41 @@
 #import "LLDownloadCache.h"
 
 typedef NS_ENUM(NSUInteger, LLDownloadJobState) {
-    LLDownloadJobStateReady,        //准备中
     LLDownloadJobStateWaiting,      //等待中
     LLDownloadJobStateDownloading,  //正在下载
-    LLDownloadJobStateSuspend,      //暂停
-    LLDownloadJobStateComplete,     //下载完成
+    LLDownloadJobStateSuspended,    //暂停
+    LLDownloadJobStateCanceled,     //取消
     LLDownloadJobStateFailed,       //下载失败
-    LLDownloadJobStateUnknown,      //未知状态
+    LLDownloadJobStateRemoved,      //移除状态
+    LLDownloadJobStateSuccessed,    //下载完成
+    
+    LLDownloadJobStateWillSuspend,  //即将暂停
+    LLDownloadJobStateWillCancel,   //即将取消
+    LLDownloadJobStateWillRemove,   //即将移除
 };
 
 typedef NS_ENUM(NSUInteger, Validation) {
-    ValidationUnkown,
-    ValidationCorrect,
-    ValidationIncorrect,
+    ValidationUnkown,           //未知
+    ValidationCorrect,          //正确
+    ValidationIncorrect,        //有误
 };
 
-//typedef NS_ENUM(NSUInteger, <#MyEnum#>) {
-//    <#MyEnumValueA#>,
-//    <#MyEnumValueB#>,
-//    <#MyEnumValueC#>,
-//};
+typedef NS_ENUM(NSUInteger, CompletionType) {
+    CompletionTypeLocal,        //本地已经存在完成
+    CompletionTypeNetwork,      //网络下载完成
+};
+
+typedef NS_ENUM(NSUInteger, InterruptType) {
+    InterruptTypeManual,        //手动打断
+    InterruptTypeError,         //发生错误打断
+    InterruptTypeStatusCode,    //错误code打断
+};
+
+NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDownloadJobInfo : NSObject<NSCoding,NSSecureCoding>
-
-// 当前标识符
-@property (nonatomic, copy)   NSString *requestId;
 // 文件下载地址
-@property (nonatomic, copy)   NSString *url;
+@property (nonatomic, strong) NSURL *url;
 // 当前URL
 @property (nonatomic, strong) NSURL *currentURL;
 // 当前文件名
@@ -59,17 +67,33 @@ typedef NS_ENUM(NSUInteger, Validation) {
 // 断点续传需要设置这个数据
 @property (nonatomic, strong) NSData *resumeData;
 
+@property (nonatomic, strong) NSURLResponse *response;
+
 @end
 
-NS_ASSUME_NONNULL_BEGIN
 
 @interface LLDownloadJob : NSObject
 
 @property (nonatomic, weak) LLDownloadCache *cache;
 
+@property (nonatomic, copy) NSString *tmpFileName;
+
+@property (nonatomic, copy) NSString *filePath;
+
 @property (nonatomic, strong, readonly) LLDownloadJobInfo *jobInfo;
 
 - (instancetype)initWithJobInfo:(LLDownloadJobInfo *)jobInfo;
+
+- (void)didWriteData:(int64_t)bytesWritten
+   totalBytesWritten:(int64_t)totalBytesWritten
+totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite;
+
+- (void)didFinishDownloadingWithDownloadTask:(NSURLSessionDownloadTask *)downloadTask
+toURL:(NSURL *)location;
+
+- (void)didCompleteBecauseofNetWorkWithTask:(NSURLSessionTask *)task error:(NSError *)error;
+
+- (void)didCompleteBecauseofLocal;
 
 @end
 
