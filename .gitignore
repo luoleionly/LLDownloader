@@ -1,0 +1,21 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+
+# CocoaPods
+LLDownloader-Demo/Pods/
+
+# SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+# IDE
+.idea/
+.vscode/

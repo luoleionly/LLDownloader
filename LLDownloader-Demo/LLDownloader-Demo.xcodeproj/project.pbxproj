@@ -1,0 +1,427 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		130E8E06FDFFF311BFFAD7A4 /* MultipleDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = ED8C1FFF60B963B9DAD7FA37 /* MultipleDownloadViewController.m */; };
+		24DB074F28305B54D1647F87 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 98949418B04048944634646F /* Foundation.framework */; };
+		3D8E2A1377235EE5B5EC21B3 /* SingleDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 991C2F5990EFA810B1E3333D /* SingleDownloadViewController.m */; };
+		4CDED77B5F4AFE3977FA38BB /* BaseDownloadListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 222DA2E789081A5113718F54 /* BaseDownloadListViewController.m */; };
+		57BA19C60C5A88294EBEFFA5 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = CC43FEAB6C785F086F6970BE /* main.m */; };
+		650F1714B47382DFCB32A82A /* DownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE5A73CF54FA7CA2581DF9DA /* DownloadViewController.m */; };
+		6A68C712AB5F974ADDE9E09B /* Pods_LLDownloader_Demo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E38829CCD76BC804B59612AA /* Pods_LLDownloader_Demo.framework */; };
+		6AF97356D387D1274CEAD990 /* ListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = BA82FE54A254A53191E18825 /* ListViewController.m */; };
+		771A5EBF239A4CF1217DB70F /* BatchDownloadViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F789D4BB3064F9B70B599345 /* BatchDownloadViewController.m */; };
+		9D65E0975172C42935523D23 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 2E43FB46C0808E489E2F3667 /* AppDelegate.m */; };
+		AE09B2FADE466029F7BA0D52 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = C4DDE46926BF270F545D7794 /* Assets.xcassets */; };
+		EF4B286E0FE9858D3A6E443A /* VideoURLStrings.plist in Resources */ = {isa = PBXBuildFile; fileRef = 570041035A44BAD291BEC254 /* VideoURLStrings.plist */; };
+		F436696EE21CC2D2D503FC84 /* DownloadTaskCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 88702DECEB3CA1A1D37CBD93 /* DownloadTaskCell.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		0CD8C5CD2161F4D37DA54C13 /* BaseDownloadListViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BaseDownloadListViewController.h; sourceTree = "<group>"; };
+		0EB80904EB7267FE8D1F9947 /* ListViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = ListViewController.h; sourceTree = "<group>"; };
+		222DA2E789081A5113718F54 /* BaseDownloadListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BaseDownloadListViewController.m; sourceTree = "<group>"; };
+		23CB3E233D059A594056EDD9 /* BatchDownloadViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = BatchDownloadViewController.h; sourceTree = "<group>"; };
+		2E43FB46C0808E489E2F3667 /* AppDelegate.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		3020489C2DD4F2031A380C5A /* DownloadViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DownloadViewController.h; sourceTree = "<group>"; };
+		44603463517622BA06AC7F17 /* Pods-LLDownloader-Demo.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDownloader-Demo.debug.xcconfig"; path = "Target Support Files/Pods-LLDownloader-Demo/Pods-LLDownloader-Demo.debug.xcconfig"; sourceTree = "<group>"; };
+		4C0E100CBDB9119966ED8329 /* Info.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		570041035A44BAD291BEC254 /* VideoURLStrings.plist */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.plist.xml; path = VideoURLStrings.plist; sourceTree = "<group>"; };
+		6CF935A08FD0DF6AF429DE07 /* Pods-LLDownloader-Demo.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-LLDownloader-Demo.release.xcconfig"; path = "Target Support Files/Pods-LLDownloader-Demo/Pods-LLDownloader-Demo.release.xcconfig"; sourceTree = "<group>"; };
+		7D2640A14C9CB15456EB7A49 /* MultipleDownloadViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = MultipleDownloadViewController.h; sourceTree = "<group>"; };
+		7F17F32F3536DF785448346E /* AppDelegate.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		88702DECEB3CA1A1D37CBD93 /* DownloadTaskCell.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DownloadTaskCell.m; sourceTree = "<group>"; };
+		98949418B04048944634646F /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS18.0.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		991C2F5990EFA810B1E3333D /* SingleDownloadViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = SingleDownloadViewController.m; sourceTree = "<group>"; };
+		A292583EEC7F682EBBFBA9C0 /* DownloadTaskCell.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = DownloadTaskCell.h; sourceTree = "<group>"; };
+		AE5A73CF54FA7CA2581DF9DA /* DownloadViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = DownloadViewController.m; sourceTree = "<group>"; };
+		BA82FE54A254A53191E18825 /* ListViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = ListViewController.m; sourceTree = "<group>"; };
+		C4AEE1406E7373F7751C987C /* LLDownloader-Demo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "LLDownloader-Demo.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C4DDE46926BF270F545D7794 /* Assets.xcassets */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		C649E5DA720ECE6FCCF07FD2 /* SingleDownloadViewController.h */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.h; path = SingleDownloadViewController.h; sourceTree = "<group>"; };
+		CC43FEAB6C785F086F6970BE /* main.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		E38829CCD76BC804B59612AA /* Pods_LLDownloader_Demo.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_LLDownloader_Demo.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED8C1FFF60B963B9DAD7FA37 /* MultipleDownloadViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = MultipleDownloadViewController.m; sourceTree = "<group>"; };
+		F789D4BB3064F9B70B599345 /* BatchDownloadViewController.m */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = sourcecode.c.objc; path = BatchDownloadViewController.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		62CEBC0D49A7D5148CAD0819 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				24DB074F28305B54D1647F87 /* Foundation.framework in Frameworks */,
+				6A68C712AB5F974ADDE9E09B /* Pods_LLDownloader_Demo.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		80028A2D46D06303B65F1ABB /* LLDownloader-Demo */ = {
+			isa = PBXGroup;
+			children = (
+				CC43FEAB6C785F086F6970BE /* main.m */,
+				7F17F32F3536DF785448346E /* AppDelegate.h */,
+				2E43FB46C0808E489E2F3667 /* AppDelegate.m */,
+				A292583EEC7F682EBBFBA9C0 /* DownloadTaskCell.h */,
+				88702DECEB3CA1A1D37CBD93 /* DownloadTaskCell.m */,
+				0CD8C5CD2161F4D37DA54C13 /* BaseDownloadListViewController.h */,
+				222DA2E789081A5113718F54 /* BaseDownloadListViewController.m */,
+				C649E5DA720ECE6FCCF07FD2 /* SingleDownloadViewController.h */,
+				991C2F5990EFA810B1E3333D /* SingleDownloadViewController.m */,
+				7D2640A14C9CB15456EB7A49 /* MultipleDownloadViewController.h */,
+				ED8C1FFF60B963B9DAD7FA37 /* MultipleDownloadViewController.m */,
+				23CB3E233D059A594056EDD9 /* BatchDownloadViewController.h */,
+				F789D4BB3064F9B70B599345 /* BatchDownloadViewController.m */,
+				0EB80904EB7267FE8D1F9947 /* ListViewController.h */,
+				BA82FE54A254A53191E18825 /* ListViewController.m */,
+				3020489C2DD4F2031A380C5A /* DownloadViewController.h */,
+				AE5A73CF54FA7CA2581DF9DA /* DownloadViewController.m */,
+				4C0E100CBDB9119966ED8329 /* Info.plist */,
+				570041035A44BAD291BEC254 /* VideoURLStrings.plist */,
+				C4DDE46926BF270F545D7794 /* Assets.xcassets */,
+			);
+			path = "LLDownloader-Demo";
+			sourceTree = "<group>";
+		};
+		910E5CCCC43043013F00AAFC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6CF935A08FD0DF6AF429DE07 /* Pods-LLDownloader-Demo.release.xcconfig */,
+				44603463517622BA06AC7F17 /* Pods-LLDownloader-Demo.debug.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		C76D2852D947E8048B0661A2 = {
+			isa = PBXGroup;
+			children = (
+				FAAB2680A5C1529369C3DDB9 /* Products */,
+				D47940F2F2C001C24B6CF363 /* Frameworks */,
+				80028A2D46D06303B65F1ABB /* LLDownloader-Demo */,
+				910E5CCCC43043013F00AAFC /* Pods */,
+			);
+			sourceTree = "<group>";
+		};
+		D47940F2F2C001C24B6CF363 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				F0737CF487D61BD4C062949B /* iOS */,
+				E38829CCD76BC804B59612AA /* Pods_LLDownloader_Demo.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		F0737CF487D61BD4C062949B /* iOS */ = {
+			isa = PBXGroup;
+			children = (
+				98949418B04048944634646F /* Foundation.framework */,
+			);
+			name = iOS;
+			sourceTree = "<group>";
+		};
+		FAAB2680A5C1529369C3DDB9 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C4AEE1406E7373F7751C987C /* LLDownloader-Demo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		48626072F7BDC13EBAB1B91C /* LLDownloader-Demo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 437A395FA130D7E908EBCF44 /* Build configuration list for PBXNativeTarget "LLDownloader-Demo" */;
+			buildPhases = (
+				C8679BE01858071BB073EA08 /* [CP] Check Pods Manifest.lock */,
+				8BF791B5D0D2BB8C7E93CFA6 /* Sources */,
+				62CEBC0D49A7D5148CAD0819 /* Frameworks */,
+				FE35429E44C159A3657DBCC3 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "LLDownloader-Demo";
+			productName = "LLDownloader-Demo";
+			productReference = C4AEE1406E7373F7751C987C /* LLDownloader-Demo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		DCA99BE56EA1C06EB1C624C4 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1600;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					48626072F7BDC13EBAB1B91C = {
+						DevelopmentTeam = PRPCL3D6T8;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 5D3E21B6E57BD13D7D829FA0 /* Build configuration list for PBXProject "LLDownloader-Demo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = C76D2852D947E8048B0661A2;
+			productRefGroup = FAAB2680A5C1529369C3DDB9 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				48626072F7BDC13EBAB1B91C /* LLDownloader-Demo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FE35429E44C159A3657DBCC3 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EF4B286E0FE9858D3A6E443A /* VideoURLStrings.plist in Resources */,
+				AE09B2FADE466029F7BA0D52 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		C8679BE01858071BB073EA08 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-LLDownloader-Demo-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8BF791B5D0D2BB8C7E93CFA6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				57BA19C60C5A88294EBEFFA5 /* main.m in Sources */,
+				9D65E0975172C42935523D23 /* AppDelegate.m in Sources */,
+				F436696EE21CC2D2D503FC84 /* DownloadTaskCell.m in Sources */,
+				4CDED77B5F4AFE3977FA38BB /* BaseDownloadListViewController.m in Sources */,
+				3D8E2A1377235EE5B5EC21B3 /* SingleDownloadViewController.m in Sources */,
+				130E8E06FDFFF311BFFAD7A4 /* MultipleDownloadViewController.m in Sources */,
+				771A5EBF239A4CF1217DB70F /* BatchDownloadViewController.m in Sources */,
+				6AF97356D387D1274CEAD990 /* ListViewController.m in Sources */,
+				650F1714B47382DFCB32A82A /* DownloadViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		028AD461A2033FF4AADF0BEF /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6CF935A08FD0DF6AF429DE07 /* Pods-LLDownloader-Demo.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRPCL3D6T8;
+				INFOPLIST_FILE = "LLDownloader-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ll.downloader.demo;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		51CA64152A4DAA8D25B957CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Release;
+		};
+		6006D8FF65760999DF41FC1B /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
+			};
+			name = Debug;
+		};
+		BA4C873CC60D64BB7F279161 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 44603463517622BA06AC7F17 /* Pods-LLDownloader-Demo.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = NO;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = PRPCL3D6T8;
+				INFOPLIST_FILE = "LLDownloader-Demo/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.ll.downloader.demo;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		437A395FA130D7E908EBCF44 /* Build configuration list for PBXNativeTarget "LLDownloader-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				028AD461A2033FF4AADF0BEF /* Release */,
+				BA4C873CC60D64BB7F279161 /* Debug */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		5D3E21B6E57BD13D7D829FA0 /* Build configuration list for PBXProject "LLDownloader-Demo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				6006D8FF65760999DF41FC1B /* Debug */,
+				51CA64152A4DAA8D25B957CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = DCA99BE56EA1C06EB1C624C4 /* Project object */;
+}

@@ -1,0 +1,22 @@
+# macOS
+.DS_Store
+
+# Xcode
+build/
+DerivedData/
+*.xcuserdata/
+*.xcuserstate
+xcuserdata/
+*.moved-aside
+
+# CocoaPods (library is the podspec source)
+Pods/
+
+# SwiftPM
+.build/
+.swiftpm/
+Package.resolved
+
+# IDE
+.idea/
+.vscode/

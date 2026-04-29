@@ -1,0 +1,16 @@
+PODS:
+  - LLDownloader (3.2.10)
+
+DEPENDENCIES:
+  - LLDownloader (from `../LLDownloader`)
+
+EXTERNAL SOURCES:
+  LLDownloader:
+    :path: "../LLDownloader"
+
+SPEC CHECKSUMS:
+  LLDownloader: 0dbeffa2a8ac40e36da61f5046e766cc079d1c45
+
+PODFILE CHECKSUM: c78499ad1f1bbd3fd4805f621a77cba1c0eaf7e8
+
+COCOAPODS: 1.13.0
